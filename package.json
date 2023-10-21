@@ -1,0 +1,17 @@
+{
+  "name": "contact_list2",
+  "version": "1.0.0",
+  "description": "my server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "author": "tj",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "mongoose": "^7.6.3"
+  }
+}

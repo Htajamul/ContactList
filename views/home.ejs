@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%=locals.title%>
+    </title>
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+       <!-- OUR CSS FILE SHOULD BE BELOW FONT OSM LONK -->
+    <link rel="stylesheet" href="/css/home.css">
+</head>
+<body>
+    <h1 id="headding">
+        <i class="fas fa-address-book"></i>
+        My Contact List
+    </h1>
+    <div class="container">
+        <ul>
+            <% for (let i of Contact_list) { %> 
+               <div class="contact"> 
+                    <li>
+                        <div class="detail">
+                           <p><%= i.name %></p>
+                           <p><%= i.phone %></p>
+                        </div>   
+                    </li>
+                </div>
+                <div class="delete-button">
+
+                        <!-- params ======== {/delete-contact/<%= i.phone %>} -->
+
+                    <a href="/delete-contact/<%= i._id %>">        
+                        <i class="fas fa-window-close"></i>
+                    </a>
+
+
+                    <!-- quarry-params ========= {/delete-contact/?phone=<%= i.phone %>} or  {/delete-contact/?phone=<%= i.phone %>&name=<%=i.name%>}-->
+
+                    <!-- <a href="/delete-contact/?id=<%= i._id %>">        
+                        <i class="fas fa-window-close"></i>
+                    </a> -->
+                </div>
+            <% } %>
+        </ul>
+    </div>
+
+    <form action="/create" method="POST">
+        <input type="text" name="name" placeholder="Enter name" required>
+        <input type="number" name="phone" placeholder="Enter phone" required>
+        <button type="submit">Add contact</button>
+    </form>
+    <script type="text/javascript" src="/js/home.js"></script>
+</body>
+</html>
